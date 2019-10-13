@@ -8,7 +8,9 @@ This is a example server for upload files to S3 using GraphQL.
  npm i
  npm start 
 </code>
- > You can test after write your AWS access key and secret in below code.
+
+ * You can test after write your AWS access key and secret in below code.
+
 
 <code>
   
