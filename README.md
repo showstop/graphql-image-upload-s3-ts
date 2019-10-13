@@ -57,11 +57,17 @@ This is a example server for upload files to S3 using GraphQL.
   
   ![run_server](./read/run_server.png)
   
-  2. You can set 3 keys and values likes below.
+  2. You can set 2 keys and values likes below.
+   <pre>
+   operations: { "query": "mutation($file: Upload!) { UploadImageReq(file: $file) { result_code image_url } }", "variables": { "file": null } }
+   
+   map: { "0": ["variables.file"] }
+   
+   </pre>
   
   ![postman_1](./read/postman_1.png)
   
-  3. You can change to file type of '0' key and select your image on your PC.
+  3. Finally, you can change to file type of '0' key and select your image on your PC.
   
   ![postman_2](./read/postman_2.png)
   
