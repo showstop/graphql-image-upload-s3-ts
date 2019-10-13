@@ -3,11 +3,6 @@
 This is a example server for upload files to S3 using GraphQL.
 
 ## Edit code before test.
-* Launch example server.
-  <code>
-   npm i
-   npm start 
-  </code>
 
 * You can test after write your AWS access key and secret in below code.
 
@@ -51,7 +46,30 @@ This is a example server for upload files to S3 using GraphQL.
     }
 </code>
 
-  ## Upload file using Postman.
+  ## Test using Postman.
   
+  1. Launch exampe server
+  
+  <code>
+   npm i
+   npm start 
+  </code>
+  
+  ![run_server](./read/run_server.png)
+  
+  2. You can set 3 keys and values likes below.
+  
+  ![postman_1](./read/postman_1.png)
+  
+  3. You can change to file type of '0' key and select your image on your PC.
+  
+  ![postman_2](./read/postman_2.png)
+  
+  4. You can see the result likes below after send this message to server.
+  
+  ![postman_result](./read/postman_result.png)
+  
+ 
+
   
   
