@@ -6,8 +6,7 @@ This is a example server for upload files to S3 using GraphQL.
 
 * You can test after write your AWS access key and secret in below code.
 
-<code>
-  
+```javascript
     Mutation: {
         UploadImageReq: async(parent: any, args: any, context: any, info: any) => {
             const { filename, mimetype, encoding, createReadStream } = await args.file;
@@ -44,7 +43,7 @@ This is a example server for upload files to S3 using GraphQL.
             return result;
         },
     }
-</code>
+```
 
   ## Test using Postman.
   
