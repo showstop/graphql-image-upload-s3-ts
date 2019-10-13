@@ -1,18 +1,44 @@
-# Upload files to S3 using GraphQL
+import { gql } from 'apollo-server-express';
 
-This is a example server for upload files to S3 using GraphQL.
+const upload_image_schema = gql`
 
-## Edit code before test.
-* Launch example server.
-  <code>
-   npm i
-   npm start 
-  </code>
+    type InfoAns {
+        result_code : Boolean
+    }
 
-* You can test after write your AWS access key and secret in below code.
+    type UploadImageAns {
+        result_code: Boolean
+        image_url: String
+    }
 
-<code>
-  
+    type File {
+        filename: String!
+        mimetype: String!
+        encoding: String!
+    }
+
+    extend type Query {
+        InfoReq: InfoAns
+    }
+
+    extend type Mutation {
+        UploadImageReq(file: Upload): UploadImageAns!
+    }
+`;
+
+import AWS from 'aws-sdk';
+
+const upload_image_resolvers = {
+    Query: {
+        InfoReq: async(parent: any, args: any, context: any, info: any) => {
+
+            // Write your code.
+
+            return {
+                result_code: false,
+            }
+        },
+    },
     Mutation: {
         UploadImageReq: async(parent: any, args: any, context: any, info: any) => {
             const { filename, mimetype, encoding, createReadStream } = await args.file;
@@ -49,9 +75,9 @@ This is a example server for upload files to S3 using GraphQL.
             return result;
         },
     }
-</code>
+}
 
-  ## Upload file using Postman.
-  
-  
-  
+module.exports = {
+    UploadImageSchema: upload_image_schema,
+    UploadImageResolvers: upload_image_resolvers,
+}
